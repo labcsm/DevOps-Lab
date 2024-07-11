@@ -123,29 +123,37 @@ Usage: git config –global user.name “[name]”
 Usage: git config –global user.email “[email address]”   
 This command sets the author name and email address respectively to be used with your 
 commits. 
+
 2)git init: 
 Usage: git init [repository name] 
 This command is used to start a new repository. 
+
 3) git clone: 
 Usage: git clone [url]   
 This command is used to obtain a repository from an existing URL. 
+
 4) git status: 
 Usage: git status   
 This command lists all the files that have to be committed. 
+
 5) git add: 
 Usage: git add [file]   
 This command adds a file to the staging area. 
 Usage: git add * 
 This command adds one or more to the staging area. 
+
 6) git commit: 
 Usage: git commit -m “[ Type in the commit message]”   
 This command records or snapshots the file permanently in the version history. 
+
 7) git log:  
 Usage: git log   
 This command is used to list the version history for the current branch. 
+
 8) git remote: 
 Usage: git remote add [variable name] [Remote Server Link]   
 This command is used to connect your local repository to the remote server. 
+
 9)git push: 
 Usage: git push [variable name] [branch]   
 This command sends the branch commits to your remote repository. 
