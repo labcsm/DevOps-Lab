@@ -321,30 +321,52 @@ $ docker kill {CONTAINER NAME or ID} [--signal VAL]
                                     EXPERIMENT-7
  Program 7: Develop a simple containerised application using Docker 
 Choose any application on which you want to make a container using Docker. Here the file is ‘package.json’. 
-• Create a file named dockerfile in the same folder as the file ‘package.json’ with the following contents.
- • Open a terminal and go to the ‘app’ directory with the ‘Dockerfile’. Now build the container image using the 
-‘docker build’ command. 
-$ docker build -t getting-started
- This command used the Dockerfile to build a new container image. You might have noticed that a lot of “layers” 
-were downloaded. This is because we instructed the builder that we wanted to start from the node:12-alpine 
-image. But, since we didn’t have that on our machine, that image needed to be downloaded. 
-After the image was downloaded, we copied in our application and used yarn to install our application’s 
-dependencies. The CMD directive specifies the default command to run when starting a container from this 
-image. 
-Finally, the -t flag tags our image. Think of this simply as a human-readable name for the final image. Since we 
-named the image getting-started, we can refer to that image when we run a container 
-The ‘.’ at the end of the docker build command tells Docker that it should look for the Dockerfile in the current 
-directory.
- • Start your container using the docker run command and specify the name of the image we just created: 
-$ docker run -dp 3000:3000 getting-started 
-Remember the -d and -p flags? We’re running the new container in “detached” mode (in the background) 
-and creating a mapping between the host’s port 3000 to the container’s port 3000. Without the port mapping, we 
-wouldn’t be able to access the application.
- • After a few seconds, open your web browser to http://localhost:3000. You should see our app.
- Go ahead and add an item or two and see that it works as you expect. You can mark items as complete and 
-remove items.Your frontend is successfully storing items in the backend. 
-Now the Docker dashboard will show two containers running. 
+1. To begin with:
+• Install Docker Desktop (Make sure you got wsl updated in your device (Win 11 / Win 
+10))
+   
+• Install node.js (Make sure you install it with admin privileges). Check if node is 
+installed using ‘npm –version’ cmd.
 
+3. Building a node.js server application:
+
+• Create a simple server application using node.js. 
+
+• From a new directory, create a file called index.js. Run ‘npm init’ cmd. Check if the 
+package.json and package-lock.json are added into the directory.
+
+• Run ‘npm i express’ to install express dependency for building server.
+
+• Write configuration code in the index.js file for a simple server. Expose a port (3000)
+and an endpoint (“/”).
+
+• Run the server application by running ‘node index.js’.
+
+5. Check if the server is running on the exposed port from the browser by running the 
+command ‘node index.js’.
+
+6. Then, to containersie/dockerise application:
+
+• Open docker desktop to start running the docker engine
+
+• Go to the working directory of the server application, and run ‘docker init’ and 
+specify the configuration settings
+
+• Check if the files are added to your directory such as DockerFile, compose.yaml, 
+dockerIgnore.
+
+• Go to compose.yaml file, and configure the port mapping as per your needs 
+(localPort: containerPort)
+
+7. Running the docker container:
+
+• Run the ‘docker compose --up build’ command. Check if the container is running in
+the Docker Desktop application.
+
+• Now visit the port you have exposed as per the config in compose.yaml. Check if the 
+application is being run in your device from docker container.
+
+8. To stop the application, run “Ctrl+C” 
 
                                EXPERIMENT-8
 
@@ -353,28 +375,37 @@ Now the Docker dashboard will show two containers running.
  Prerequisites: Java development kit. Install Eclipse IDE for java developers. https://www.eclipse.org/downloads/ 
 Download the Selenium Java client driver. https://www.selenium.dev/downloads/
 
- Configure Eclipse IDE with webDriver. 
-Launch eclipse.exe, create a new project through File>New>Java Project. Name the project as “newproject”.
- 
- Enter project name, location to save project, select an execution JRE, select layout project option, click on Finish 
-button.
- Make new package as “newpackage”.
- 
- Create a new Java class under newpackage by right-clicking on it and then selecting- New > Class, and then name 
-it as “MyClass”. Your Eclipse IDE should look like the image below.
- Give name of the class, click on finish button.
- 
-After creating the class:
- 
- Now selenium webdriver’s into Java Build Path. 
-When you click on “Add External JARs..” It will open a pop-up window. Select the JAR files you want to add.
- 
-Select all files inside the lib folder.
- Select files outside lib folder.
- 
- Once done, click “Apply and Close” button. 
+ 1. Install idk 17 or newer. Install Maven. Add them to environment variables.
 
- Add all the JAR files inside and outside the “libs” folder. Your Properties dialog should now look similar to the 
-image below.
- Finally, click OK and we are done importing Selenium libraries into our project.
- 
+2. Check if idk and maven are installed using “java —version” and “mvn —version”
+
+3. Install eclipse IDE by visiting their website. Allow appropriate permissions for its installation.
+
+4. Create a new maven project in eclipse.
+
+5. Configure the directory, make sure to add it to project set. Proceed next.
+
+6. Choose Quickstart archetype by apache.maven in the given list.
+
+7. Give project details such as organisation id and archetype id (project-name).
+
+8. You’ll have the project structure on the left side of IDE.
+
+9. Now go to google and search for “selenium java maven dependency”. Go to maven repository url and copy the dependency code of the latest version.
+
+10. Do the same for chrome driver java. Add the copied code, in pom.xml file in our project.
+11. Write the test code in App.java file. Run the project as java application.
+
+Code: 
+
+“””
+
+	WebDriver driver = new ChromeDriver();
+	driver.get(“www.google.com”);
+	System.out.println(driver.getTitle());
+	driver.quit();
+
+	System.out.println(“Testing completed !”);
+
+
+”””
