@@ -248,15 +248,22 @@ practices in software development that aim to automate and streamline the proces
 of building, testing, and deploying software.
 
  • Go to Dashboard click on new item and give the item a name.
+ 
  • Select the item as freestyle project and then click OK.
- • Click on Configure-> General -> Description(Give Some description
+ 
+ • Click on Configure-> General -> Description(Give Some description.
+ 
  • Select discard old bills(radio buttons) 
-   Strategy: Select it as  log rotation days to keep bills (14) and maximum number of  Bills to keep 20
+   Strategy: Select it as  log rotation days to keep bills (14) and maximum number of  Bills to keep 20.
+   
  • Select Github project -> Goto Github repository and copy the link. Go to project URL and place the Github URL in the text box.
+ 
  • In source Code management select git and give the Github URL.
+ 
  • Build Triggers select 3rd Checkbox(Build Periodically)-> Schedule, In that textbox we must give time duration  
                             TZ=IST 
                             H 21 6 * 0
+                            
  Click on Save now. Click on Build now. Click on Control Output.
 
 
