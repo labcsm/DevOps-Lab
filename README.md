@@ -336,7 +336,7 @@ Choose any application on which you want to make a container using Docker. Here 
 • Install node.js (Make sure you install it with admin privileges). Check if node is 
 installed using ‘npm –version’ cmd.
 
-3. Building a node.js server application:
+2. Building a node.js server application:
 
 • Create a simple server application using node.js. 
 
@@ -350,10 +350,10 @@ and an endpoint (“/”).
 
 • Run the server application by running ‘node index.js’.
 
-5. Check if the server is running on the exposed port from the browser by running the 
+3. Check if the server is running on the exposed port from the browser by running the 
 command ‘node index.js’.
 
-6. Then, to containersie/dockerise application:
+4. Then, to containersie/dockerise application:
 
 • Open docker desktop to start running the docker engine
 
@@ -366,7 +366,7 @@ dockerIgnore.
 • Go to compose.yaml file, and configure the port mapping as per your needs 
 (localPort: containerPort)
 
-7. Running the docker container:
+5. Running the docker container:
 
 • Run the ‘docker compose --up build’ command. Check if the container is running in
 the Docker Desktop application.
@@ -374,7 +374,7 @@ the Docker Desktop application.
 • Now visit the port you have exposed as per the config in compose.yaml. Check if the 
 application is being run in your device from docker container.
 
-8. To stop the application, run “Ctrl+C” 
+6. To stop the application, run “Ctrl+C” 
 
                                EXPERIMENT-8
 
