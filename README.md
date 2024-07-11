@@ -236,3 +236,138 @@ Jenkins setup wizard and open the initialAdminPassword file using a text editor.
 • C:\ProgramFiles(x86)\Jenkins\secrets\initialAdminPassword). 
 • Copy the password from the file and paste it into the Jenkins setup wizard to unlock 
 Jenkins. 
+
+
+
+                      EXPERIMENT-5
+                      
+ Program 5: Demonstrate continuous integration and development using Jenkins. 
+CI/CD pipeline with a GitHub repository: 
+Continuous Integration (CI) and Continuous Development (CD) are 
+practices in software development that aim to automate and streamline the process 
+of building, testing, and deploying software.
+
+ • Go to Dashboard click on new item and give the item a name.
+ • Select the item as freestyle project and then click OK.
+ • Click on Configure-> General -> Description(Give Some description
+ • Select discard old bills(radio buttons) 
+   Strategy: Select it as  log rotation days to keep bills (14) and maximum number of  Bills to keep 20
+ • Select Github project -> Goto Github repository and copy the link. Go to project URL and place the Github URL in the text box.
+ • In source Code management select git and give the Github URL.
+ • Build Triggers select 3rd Checkbox(Build Periodically)-> Schedule, In that textbox we must give time duration  
+                            TZ=IST 
+                            H 21 6 * 0
+ Click on Save now. Click on Build now. Click on Control Output.
+
+
+                               EXPERIMENT-6
+ Program 6: Explore Docker commands for content management. 
+Description: Docker is a popular platform that allows you to create and manage containers, which are 
+lightweight, isolated environments for running applications.When it comes to content management, Docker 
+provides several useful commands for efficiently managing containerised content.
+
+ • Run command: this is used to run a container from an image by specifying the Image ID or the Repository and/
+ or Tag name. 
+$ docker run {image} 
+e.g $ docker run nginx 
+if it already exists, the command runs an instance <span class=“NormalTextRun SpellingErrorV2   
+SCXW251451022 BCX0”>nginx</span> 
+if it does not exist, it goes out to the docker hub (by default) and pulls the image down. 
+
+• ps command: this command lists all running containers and some basic information aboutthem. 
+$ docker ps [option] 
+In option you can use various flags. To get information about the flags 
+$ docker ps --help
+
+ • ls command :like ps command, ls command can also be used for listing containers. –a flag can be used to list all 
+containers. 
+$ docker container ls
+
+ • stop command: this command is used to stop a running container.After giving stop command can check with ps 
+command, whether the container has stopped. 
+$ docker stop {container-id}
+ 
+ • rm command:this command removes a stopped or exited container. 
+$ docker rm {CONTAINER NAME or ID}
+
+ • exec command: this command is used to go inside a running container. This is useful to debug running 
+containers or do other work within a container 
+$ docker exec –it {container} {command}
+
+ • logs command: in case acontainer is launched in detached mode and you want to see its logs, you can use logs 
+command. 
+$ docker logs {CONTAINER NAME or ID}
+
+ • cp command: to copy files between a container and localhost filesystem, this command is used. 
+$ docker container cp {CONTAINER NAME or ID:SRC_PATH} {DEST_PATH}|
+
+• export command: this command exports the filesystem of a container as a TAR file. 
+$ docker container export {CONTAINER NAME or ID}
+
+ • inspect command: this command gives detailed information about a container. 
+$ docker inspect {CONTAINER NAME or ID}
+
+ • kill command: this command kills a running container with an option –signal or –s flag. Multiple containers can 
+also be specified to be killed in one go. 
+$ docker kill {CONTAINER NAME or ID} [--signal VAL]
+
+                                    EXPERIMENT-7
+ Program 7: Develop a simple containerised application using Docker 
+Choose any application on which you want to make a container using Docker. Here the file is ‘package.json’. 
+• Create a file named dockerfile in the same folder as the file ‘package.json’ with the following contents.
+ • Open a terminal and go to the ‘app’ directory with the ‘Dockerfile’. Now build the container image using the 
+‘docker build’ command. 
+$ docker build -t getting-started
+ This command used the Dockerfile to build a new container image. You might have noticed that a lot of “layers” 
+were downloaded. This is because we instructed the builder that we wanted to start from the node:12-alpine 
+image. But, since we didn’t have that on our machine, that image needed to be downloaded. 
+After the image was downloaded, we copied in our application and used yarn to install our application’s 
+dependencies. The CMD directive specifies the default command to run when starting a container from this 
+image. 
+Finally, the -t flag tags our image. Think of this simply as a human-readable name for the final image. Since we 
+named the image getting-started, we can refer to that image when we run a container 
+The ‘.’ at the end of the docker build command tells Docker that it should look for the Dockerfile in the current 
+directory.
+ • Start your container using the docker run command and specify the name of the image we just created: 
+$ docker run -dp 3000:3000 getting-started 
+Remember the -d and -p flags? We’re running the new container in “detached” mode (in the background) 
+and creating a mapping between the host’s port 3000 to the container’s port 3000. Without the port mapping, we 
+wouldn’t be able to access the application.
+ • After a few seconds, open your web browser to http://localhost:3000. You should see our app.
+ Go ahead and add an item or two and see that it works as you expect. You can mark items as complete and 
+remove items.Your frontend is successfully storing items in the backend. 
+Now the Docker dashboard will show two containers running. 
+
+
+                               EXPERIMENT-8
+
+ Program 8: Install and explore Selenium for automated testing
+ 
+ Prerequisites: Java development kit. Install Eclipse IDE for java developers. https://www.eclipse.org/downloads/ 
+Download the Selenium Java client driver. https://www.selenium.dev/downloads/
+
+ Configure Eclipse IDE with webDriver. 
+Launch eclipse.exe, create a new project through File>New>Java Project. Name the project as “newproject”.
+ 
+ Enter project name, location to save project, select an execution JRE, select layout project option, click on Finish 
+button.
+ Make new package as “newpackage”.
+ 
+ Create a new Java class under newpackage by right-clicking on it and then selecting- New > Class, and then name 
+it as “MyClass”. Your Eclipse IDE should look like the image below.
+ Give name of the class, click on finish button.
+ 
+After creating the class:
+ 
+ Now selenium webdriver’s into Java Build Path. 
+When you click on “Add External JARs..” It will open a pop-up window. Select the JAR files you want to add.
+ 
+Select all files inside the lib folder.
+ Select files outside lib folder.
+ 
+ Once done, click “Apply and Close” button. 
+
+ Add all the JAR files inside and outside the “libs” folder. Your Properties dialog should now look similar to the 
+image below.
+ Finally, click OK and we are done importing Selenium libraries into our project.
+ 
